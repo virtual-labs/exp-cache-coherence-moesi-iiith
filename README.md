@@ -1,24 +1,26 @@
 ## Introduction
 
-
-<b>Discipline | <b>Fill your discipline name here
+**Discipline** | **Computer Science and Engineering**
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+**Lab** | **Computer Architecture Lab**
+**Experiment** | **MOESI Cache Coherence Protocol**
 
 ### About the Experiment 
 
-Fill a brief description of this experiment here
+This experiment provides an interactive simulation environment to understand the MOESI (Modified, Owned, Exclusive, Shared, Invalid) cache coherence protocol used in multiprocessor systems. Students will explore how the five-state protocol maintains data consistency across multiple processor caches while optimizing memory bandwidth through cache-to-cache transfers and intelligent state management.
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+The simulation allows learners to execute read and write operations across multiple processors, observe state transitions, analyze bus traffic patterns, and understand the advantages of MOESI over simpler coherence protocols like MSI and MESI.
+
+**Name of Developer** | **Sankalp Bhat, Siddhant Garg**
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+**Institute** | **IIIT Hyderabad**
+**Email id** | **sankalp.b@research.iiit.ac.in, siddhantllg@gmail.com**
+**Department** | **Computer Science and Engineering**
 
 ### Contributors List
 
-SrNo | Name | Faculty or Student | Department| Institute | Email id
+SrNo | Name | Faculty or Student | Department | Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+1 | Prof. Suresh Purini | Faculty | Computer Science and Engineering | IIIT Hyderabad | suresh.purini@iiit.ac.in
+2 | Sankalp Bhat | Student | Computer Science and Engineering | IIIT Hyderabad | sankalp.b@research.iiit.ac.in
+3 | Siddhant Garg | Student | Computer Science and Engineering | IIIT Hyderabad | siddhantllg@gmail.com
