@@ -15,12 +15,12 @@ The simulation allows learners to execute read and write operations across multi
 :--|:--|
 **Institute** | **IIIT Hyderabad**
 **Email id** | **sankalp.b@research.iiit.ac.in, siddhantllg@gmail.com**
-**Department** | **Computer Science and Engineering**
+**Laboratory** | **Computer Systems Group**
 
 ### Contributors List
 
-SrNo | Name | Faculty or Student | Department | Institute | Email id
+SrNo | Name | Faculty or Student | Laboratory | Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | Prof. Suresh Purini | Faculty | Computer Science and Engineering | IIIT Hyderabad | suresh.purini@iiit.ac.in
-2 | Sankalp Bhat | Student | Computer Science and Engineering | IIIT Hyderabad | sankalp.b@research.iiit.ac.in
-3 | Siddhant Garg | Student | Computer Science and Engineering | IIIT Hyderabad | siddhantllg@gmail.com
+1 | Prof. Suresh Purini | Faculty | Computer Systems Group | IIIT Hyderabad | suresh.purini@iiit.ac.in
+2 | Sankalp Bhat | Student | Computer Systems Group | IIIT Hyderabad | sankalp.b@research.iiit.ac.in
+3 | Siddhant Garg | Student | Computer Systems Group | IIIT Hyderabad | siddhantllg@gmail.com
