@@ -24,6 +24,94 @@
                 </div>
             </div>
         </section>
+
+        <!-- Understanding Section -->
+        <section class="section">
+            <div class="box">
+                <h3 class="title is-4" style="color: #176696;">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Understanding the MOESI Protocol
+                </h3>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h4 class="title is-5" style="color: #2C9AD1;">
+                            MOESI Protocol States:
+                        </h4>
+                        <div class="content">
+                            <ul>
+                                <li><strong style="color: #176696;">M (Modified):</strong> Cache line is modified, exclusive, and dirty</li>
+                                <li><strong style="color: #8B4513;">O (Owned):</strong> Cache line is owned by this cache, shared with others, responsible for memory updates</li>
+                                <li><strong style="color: #9B59B6;">E (Exclusive):</strong> Cache line is exclusive, clean, and unmodified</li>
+                                <li><strong style="color: #2C9AD1;">S (Shared):</strong> Cache line is shared, clean, and read-only</li>
+                                <li><strong style="color: #96A0A3;">I (Invalid):</strong> Cache line is invalid, not present in this cache</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <h4 class="title is-5" style="color: #2C9AD1;">
+                            Key MOESI Advantages:
+                        </h4>
+                        <div class="content">
+                            <ul>
+                                <li><strong>Owned state</strong> allows sharing dirty data without writing back to memory</li>
+                                <li><strong>Exclusive state</strong> enables silent transitions to Modified on writes</li>
+                                <li><strong>Reduced memory traffic</strong> through cache-to-cache transfers</li>
+                                <li><strong>Better performance</strong> for producer-consumer sharing patterns</li>
+                                <li><strong>Optimized writeback</strong> only when necessary</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5">
+                    <h4 class="title is-5" style="color: #2C9AD1;">
+                        How to Use This Simulator:
+                    </h4>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="content">
+                                <ol>
+                                    <li>Select a processor (P0 or P1)</li>
+                                    <li>Choose an operation (Read or Write)</li>
+                                    <li>Select a memory address (0x0 to 0x3)</li>
+                                </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <ol start="4">
+                                    <li>For writes, enter a data value</li>
+                                    <li>Click "Execute Operation" to see the protocol in action</li>
+                                    <li>Observe state transitions highlighted in the table above</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Try This Test Sequence Section -->
+        <section class="section">
+            <div class="box">
+                <div class="notification is-info is-light">
+                    <h5 class="title is-6" style="color: #176696;">
+                        <i class="fas fa-flask mr-2"></i>
+                        Try This Test Sequence:
+                    </h5>
+                    <div class="content">
+                        <ol>
+                            <li><strong>P0 reads</strong> 0x0 → I→E (Exclusive access, no other copies)</li>
+                            <li><strong>P1 reads</strong> 0x0 → P0: E→S, P1: I→S (Both share clean copy)</li>
+                            <li><strong>P0 writes</strong> "100" to 0x0 → P0: S→M, P1: S→I (P0 gets exclusive write)</li>
+                            <li><strong>P1 reads</strong> 0x0 → P0: M→O, P1: I→S (P0 owns, P1 shares dirty data)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
           <!-- MOESI State Table Section -->
         <section class="section">
             <div id="state-table-container">
@@ -203,86 +291,6 @@
                             <!-- Transaction log entries will be populated by JavaScript -->
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </section>
-          <!-- Understanding Section -->
-        <section class="section">
-            <div class="box">
-                <h3 class="title is-4" style="color: #176696;">
-                    <i class="fas fa-lightbulb mr-2"></i>
-                    Understanding the MOESI Protocol
-                </h3>
-                
-                <div class="columns">
-                    <div class="column">
-                        <h4 class="title is-5" style="color: #2C9AD1;">
-                            MOESI Protocol States:
-                        </h4>
-                        <div class="content">
-                            <ul>
-                                <li><strong style="color: #176696;">M (Modified):</strong> Cache line is modified, exclusive, and dirty</li>
-                                <li><strong style="color: #8B4513;">O (Owned):</strong> Cache line is owned by this cache, shared with others, responsible for memory updates</li>
-                                <li><strong style="color: #9B59B6;">E (Exclusive):</strong> Cache line is exclusive, clean, and unmodified</li>
-                                <li><strong style="color: #2C9AD1;">S (Shared):</strong> Cache line is shared, clean, and read-only</li>
-                                <li><strong style="color: #96A0A3;">I (Invalid):</strong> Cache line is invalid, not present in this cache</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="column">
-                        <h4 class="title is-5" style="color: #2C9AD1;">
-                            Key MOESI Advantages:
-                        </h4>
-                        <div class="content">
-                            <ul>
-                                <li><strong>Owned state</strong> allows sharing dirty data without writing back to memory</li>
-                                <li><strong>Exclusive state</strong> enables silent transitions to Modified on writes</li>
-                                <li><strong>Reduced memory traffic</strong> through cache-to-cache transfers</li>
-                                <li><strong>Better performance</strong> for producer-consumer sharing patterns</li>
-                                <li><strong>Optimized writeback</strong> only when necessary</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-5">
-                    <h4 class="title is-5" style="color: #2C9AD1;">
-                        How to Use This Simulator:
-                    </h4>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="content">
-                                <ol>
-                                    <li>Select a processor (P0 or P1)</li>
-                                    <li>Choose an operation (Read or Write)</li>
-                                    <li>Select a memory address (0x0 to 0x3)</li>
-                                </div>
-                        </div>
-                        <div class="column">
-                            <div class="content">
-                                <ol start="4">
-                                    <li>For writes, enter a data value</li>
-                                    <li>Click "Execute Operation" to see the protocol in action</li>
-                                    <li>Observe state transitions highlighted in the table above</li>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="notification is-info is-light">
-                    <h5 class="title is-6" style="color: #176696;">
-                        Try This Test Sequence:
-                    </h5>
-                    <div class="content">
-                        <ol>
-                            <li><strong>P0 reads</strong> 0x0 → I→E (Exclusive access, no other copies)</li>
-                            <li><strong>P1 reads</strong> 0x0 → P0: E→S, P1: I→S (Both share clean copy)</li>
-                            <li><strong>P0 writes</strong> "100" to 0x0 → P0: S→M, P1: S→I (P0 gets exclusive write)</li>
-                            <li><strong>P1 reads</strong> 0x0 → P0: M→O, P1: I→S (P0 owns, P1 shares dirty data)</li>
-                        </ol>
-                    </div>
                 </div>
             </div>
         </section>
