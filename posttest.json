@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "After completing the MOESI simulation, which state transition occurs when a processor writes to a cache line in Exclusive state?",
+      "answers": {
+        "a": "Exclusive to Shared",
+        "b": "Exclusive to Invalid",
+        "c": "Exclusive to Modified",
+        "d": "Exclusive to Owned"
+      },
+      "explanations": {
+        "a": "Incorrect. Writing to an Exclusive cache line doesn't make it Shared.",
+        "b": "Incorrect. Writing to an Exclusive cache line doesn't invalidate it.",
+        "c": "Correct. When a processor writes to a cache line in Exclusive state, it transitions to Modified state without generating bus traffic.",
+        "d": "Incorrect. Exclusive state transitions to Modified when written, not Owned."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the MOESI simulation, what happens to other processors' cache lines when one processor performs BusRdX operation?",
+      "answers": {
+        "a": "They transition to Shared state",
+        "b": "They transition to Exclusive state", 
+        "c": "They transition to Invalid state",
+        "d": "They remain unchanged"
+      },
+      "explanations": {
+        "a": "Incorrect. BusRdX invalidates other copies, not makes them shared.",
+        "b": "Incorrect. BusRdX doesn't make other caches exclusive.",
+        "c": "Correct. BusRdX (Bus Read Exclusive) invalidates all other copies of the cache line in other processors.",
+        "d": "Incorrect. BusRdX specifically changes other cache states to Invalid."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Based on your simulation experience, which MOESI state requires write-back to memory when the cache line is evicted?",
+      "answers": {
+        "a": "Shared and Invalid only",
+        "b": "Exclusive and Shared only",
+        "c": "Modified and Owned only", 
+        "d": "All states require write-back"
+      },
+      "explanations": {
+        "a": "Incorrect. Shared and Invalid states contain clean data that doesn't need write-back.",
+        "b": "Incorrect. Exclusive and Shared states contain clean data identical to memory.",
+        "c": "Correct. Only Modified and Owned states contain dirty data that must be written back to memory when evicted.",
+        "d": "Incorrect. Clean states (I, E, S) don't require write-back."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "During the simulation, when does cache-to-cache transfer occur in the MOESI protocol?",
+      "answers": {
+        "a": "When any processor reads shared data",
+        "b": "When a processor reads data from another processor in Modified or Owned state",
+        "c": "When a processor writes to Invalid cache line",
+        "d": "When processors synchronize their clocks"
+      },
+      "explanations": {
+        "a": "Incorrect. Shared data doesn't require cache-to-cache transfer as it's available in memory.",
+        "b": "Correct. Cache-to-cache transfer occurs when a processor needs data that exists in another processor's cache in Modified or Owned state.",
+        "c": "Incorrect. Writing to Invalid cache line typically involves reading from memory first.",
+        "d": "Incorrect. Clock synchronization is unrelated to cache-to-cache transfers."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "From your simulation observations, what is the main advantage of the Owned state over immediately writing back to memory?",
+      "answers": {
+        "a": "It eliminates all future cache misses",
+        "b": "It reduces memory bandwidth usage and allows data sharing",
+        "c": "It prevents other processors from accessing the data",
+        "d": "It automatically updates all shared copies"
+      },
+      "explanations": {
+        "a": "Incorrect. Owned state doesn't eliminate cache misses.",
+        "b": "Correct. The Owned state allows sharing of modified data without writing to memory, reducing memory bandwidth while enabling data sharing between caches.",
+        "c": "Incorrect. Owned state actually facilitates data sharing with other processors.",
+        "d": "Incorrect. Owned state doesn't automatically update other copies."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In your simulation, when a processor in Shared state wants to write data, which bus operation is generated?",
+      "answers": {
+        "a": "BusRd to read the latest data",
+        "b": "BusRdX to get exclusive access",
+        "c": "BusUpgr to invalidate other shared copies", 
+        "d": "BusFlush to write current data"
+      },
+      "explanations": {
+        "a": "Incorrect. The processor already has the data in Shared state.",
+        "b": "Incorrect. BusRdX is used when the processor doesn't have the data.",
+        "c": "Correct. BusUpgr (Bus Upgrade) is used to invalidate other shared copies and gain exclusive write access.",
+        "d": "Incorrect. BusFlush is used to write back dirty data, not to gain write access."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Based on your simulation experience, which scenario would generate the most bus traffic in a MOESI system?",
+      "answers": {
+        "a": "Multiple processors reading the same data repeatedly",
+        "b": "A single processor repeatedly writing to private data",
+        "c": "Multiple processors alternately writing to the same memory location",
+        "d": "Multiple processors reading different memory locations"
+      },
+      "explanations": {
+        "a": "Incorrect. After the first read, subsequent reads can be served from shared caches.",
+        "b": "Incorrect. Private data writes don't generate much bus traffic after initial exclusive access.",
+        "c": "Correct. Alternating writes to the same location cause frequent invalidations and ownership transfers, generating maximum bus traffic.",
+        "d": "Incorrect. Reading different locations doesn't cause coherence conflicts."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In a complex simulation scenario, if processor P0 has data in Owned state and processor P1 performs a write to the same address, what is the sequence of state transitions?",
+      "answers": {
+        "a": "P0: Owned→Shared, P1: Invalid→Modified",
+        "b": "P0: Owned→Invalid, P1: Invalid→Modified", 
+        "c": "P0: Owned→Modified, P1: Invalid→Shared",
+        "d": "P0: Owned→Exclusive, P1: Invalid→Invalid"
+      },
+      "explanations": {
+        "a": "Incorrect. When P1 writes, P0 cannot remain in a valid state.",
+        "b": "Correct. P1's write operation invalidates P0's owned copy (Owned→Invalid) and P1 gains exclusive access (Invalid→Modified).",
+        "c": "Incorrect. P0 cannot transition to Modified when another processor is writing.",
+        "d": "Incorrect. P1 will successfully write and transition to Modified, not remain Invalid."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "After running multiple simulation scenarios, which statement best describes the scalability characteristics of the MOESI protocol?",
+      "answers": {
+        "a": "Performance degrades linearly with the number of processors",
+        "b": "Bus traffic increases exponentially with sharing patterns",
+        "c": "The protocol maintains good performance for moderate sharing with cache-to-cache transfers",
+        "d": "All processors must synchronize on every memory operation"
+      },
+      "explanations": {
+        "a": "Incorrect. Performance degradation is not necessarily linear and depends on access patterns.",
+        "b": "Incorrect. While bus traffic increases with sharing, it's not always exponential.",
+        "c": "Correct. MOESI's cache-to-cache transfers and Owned state help maintain performance even with moderate data sharing among processors.",
+        "d": "Incorrect. MOESI doesn't require synchronization on every memory operation."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}
