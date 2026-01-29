@@ -2,38 +2,157 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the primary purpose of cache coherence protocols in multiprocessor systems?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "To increase the speed of individual processors",
+        "b": "To ensure data consistency across multiple processor caches",
+        "c": "To reduce the size of cache memory required",
+        "d": "To eliminate the need for main memory"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Cache coherence protocols are not primarily designed to increase processor speed.",
+        "b": "Correct. Cache coherence protocols ensure that when one processor modifies data, all other processors see the updated value and maintain data consistency.",
+        "c": "Incorrect. Cache coherence protocols do not reduce cache memory requirements.",
+        "d": "Incorrect. Cache coherence protocols work with main memory, not replace it."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "How many states does the MOESI cache coherence protocol define?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Three states",
+        "b": "Four states", 
+        "c": "Five states",
+        "d": "Six states"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. MOESI has more than three states.",
+        "b": "Incorrect. MOESI has more than four states (MESI has four).",
+        "c": "Correct. MOESI defines five states: Modified, Owned, Exclusive, Shared, and Invalid.",
+        "d": "Incorrect. MOESI has exactly five states, not six."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "In a cache coherence protocol, what does a 'cache miss' typically result in?",
+      "answers": {
+        "a": "The processor stops execution",
+        "b": "The data is fetched from main memory or another cache",
+        "c": "The cache line is immediately invalidated",
+        "d": "The processor switches to a different task"
+      },
+      "explanations": {
+        "a": "Incorrect. A cache miss does not stop processor execution.",
+        "b": "Correct. When a cache miss occurs, the required data must be fetched from main memory or supplied by another cache that has the data.",
+        "c": "Incorrect. Cache misses typically result in loading data, not invalidating it.",
+        "d": "Incorrect. Cache misses are handled by the memory system, not by task switching."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the key advantage of the Exclusive state in cache coherence protocols?",
+      "answers": {
+        "a": "It allows multiple processors to write simultaneously",
+        "b": "It prevents any read operations on the data",
+        "c": "It allows transition to Modified state without bus communication",
+        "d": "It automatically invalidates all other cache copies"
+      },
+      "explanations": {
+        "a": "Incorrect. Exclusive state means only one processor has the data, preventing simultaneous writes by multiple processors.",
+        "b": "Incorrect. Exclusive state allows read operations by the owning processor.",
+        "c": "Correct. When a cache line is in Exclusive state, it can transition to Modified state upon a write without generating bus traffic.",
+        "d": "Incorrect. The Exclusive state indicates no other valid copies exist, but doesn't actively invalidate them."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In the MOESI protocol, which state indicates that the cache line is modified and may be shared with other caches?",
+      "answers": {
+        "a": "Modified (M)",
+        "b": "Owned (O)",
+        "c": "Exclusive (E)", 
+        "d": "Shared (S)"
+      },
+      "explanations": {
+        "a": "Incorrect. Modified state means the data is modified but not shared with other caches.",
+        "b": "Correct. Owned state indicates the cache line is modified but may be shared with other caches in Shared state.",
+        "c": "Incorrect. Exclusive state means the data is unmodified and not shared.",
+        "d": "Incorrect. Shared state means the data is unmodified and may be shared."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What bus operation is typically generated when a processor wants to write to a cache line in Shared state?",
+      "answers": {
+        "a": "BusRd",
+        "b": "BusRdX",
+        "c": "BusUpgr", 
+        "d": "BusFlush"
+      },
+      "explanations": {
+        "a": "Incorrect. BusRd is used for read operations, not writes to shared data.",
+        "b": "Incorrect. BusRdX is used when the processor doesn't have the data at all.",
+        "c": "Correct. BusUpgr (Bus Upgrade) is generated to invalidate other shared copies when writing to data in Shared state.",
+        "d": "Incorrect. BusFlush is used to write back modified data, not to upgrade shared data."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following best describes the snooping mechanism in cache coherence?",
+      "answers": {
+        "a": "Processors actively request cache states from other processors",
+        "b": "All caches monitor bus transactions and update their states accordingly",
+        "c": "A central controller manages all cache states",
+        "d": "Processors randomly check other caches for data consistency"
+      },
+      "explanations": {
+        "a": "Incorrect. Snooping is a passive monitoring mechanism, not an active request system.",
+        "b": "Correct. In snooping protocols, all caches continuously monitor (snoop) bus transactions and update their cache line states based on observed activities.",
+        "c": "Incorrect. Snooping is a distributed mechanism, not centrally controlled.",
+        "d": "Incorrect. Snooping is systematic and based on bus transactions, not random checking."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In a MOESI system, if Processor A has a cache line in Modified state and Processor B performs a read to the same address, what happens to Processor A's cache line?",
+      "answers": {
+        "a": "It transitions to Invalid state",
+        "b": "It remains in Modified state",
+        "c": "It transitions to Owned state",
+        "d": "It transitions to Shared state"
+      },
+      "explanations": {
+        "a": "Incorrect. The cache line doesn't become invalid when another processor reads.",
+        "b": "Incorrect. The state must change to reflect the sharing of data.",
+        "c": "Correct. When a processor with Modified data shares it with another processor, it transitions to Owned state, maintaining responsibility for the modified data.",
+        "d": "Incorrect. Shared state is for unmodified data; modified data transitions to Owned when shared."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the primary benefit of the Owned state in MOESI compared to simpler protocols like MESI?",
+      "answers": {
+        "a": "It eliminates all cache misses",
+        "b": "It allows dirty data sharing without writing back to memory first",
+        "c": "It prevents any coherence traffic on the bus",
+        "d": "It automatically resolves all cache conflicts"
+      },
+      "explanations": {
+        "a": "Incorrect. No protocol can eliminate all cache misses.",
+        "b": "Correct. The Owned state allows a cache to share its modified (dirty) data with other caches without first writing it back to main memory, reducing memory traffic.",
+        "c": "Incorrect. Coherence traffic is still necessary for maintaining consistency.",
+        "d": "Incorrect. The Owned state doesn't automatically resolve conflicts; it's part of the protocol for managing them."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
   ]
 }
