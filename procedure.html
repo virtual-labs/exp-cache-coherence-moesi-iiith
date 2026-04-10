@@ -1,0 +1,851 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'IIITH',
+        'phase': 'Testing',
+        'expName': 'MOESI CACHE COHERENCE PROTOCOL',
+        'expShortName': 'cache-coherence-moesi'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="cache-coherence-moesi">
+    	<meta name="developer-institute" content="IIITH">
+    	<meta name="learning-unit" content="MOESI CACHE COHERENCE PROTOCOL">
+    	<meta name="task-name" content="Procedure">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="cache-coherence-moesi" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] MOESI CACHE COHERENCE PROTOCOL" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MOESI CACHE COHERENCE PROTOCOL&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2 ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2  current-item ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="simulation.html" class="p-2 ">
+                                      Simulation
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2 ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2  current-item ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="simulation.html" class="p-2 ">
+                        Simulation
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="moesi-cache-coherence-protocol">MOESI Cache Coherence Protocol</h2>
+          
+            </div>
+              <p>This experiment demonstrates the MOESI cache coherence protocol through an interactive simulation. Follow these step-by-step instructions to understand how cache states transition and observe bus traffic patterns.</p>
+          <h4 id="step-1-understanding-the-interface">Step 1: Understanding the Interface</h4>
+          <ol>
+          <li><p><strong>Review the MOESI State Transition Table</strong> at the top of the simulator</p>
+          <ul>
+          <li>Observe the 5 states: Modified (M), Owned (O), Exclusive (E), Shared (S), Invalid (I)</li>
+          <li>Note the color coding for each state</li>
+          <li>Study the transition conditions and bus actions</li>
+          </ul>
+          </li>
+          <li><p><strong>Examine the Simulation Controls</strong></p>
+          <ul>
+          <li><strong>Processor Selection</strong>: Choose between Processor 0 (P0) and Processor 1 (P1)</li>
+          <li><strong>Operation Type</strong>: Select either PrRd (Processor Read) or PrWr (Processor Write)</li>
+          <li><strong>Memory Address</strong>: Choose from addresses 0x0, 0x1, 0x2, or 0x3</li>
+          <li><strong>Data Value</strong>: Enter data for write operations (enabled only for writes)</li>
+          </ul>
+          </li>
+          <li><p><strong>Monitor Cache States</strong></p>
+          <ul>
+          <li>View the current state of each cache line</li>
+          <li>Observe cache performance statistics (hits/misses)</li>
+          <li>Track valid/invalid status of cache lines</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="basic-exercises">Basic Exercises</h3>
+          <h4 id="exercise-1-understanding-cache-miss-behavior">Exercise 1: Understanding Cache Miss Behavior</h4>
+          <ol>
+          <li><p><strong>Initial Read Miss (I → E)</strong></p>
+          <ul>
+          <li>Select <strong>Processor 0</strong></li>
+          <li>Choose <strong>PrRd (Processor Read)</strong></li>
+          <li>Select <strong>Memory Address 0x0</strong></li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>: P0 cache line transitions from Invalid (I) to Exclusive (E)</li>
+          <li><strong>Note</strong>: Bus activity shows "BusRd" and cache miss is recorded</li>
+          </ul>
+          </li>
+          <li><p><strong>Sharing Creation (E → S)</strong></p>
+          <ul>
+          <li>Select <strong>Processor 1</strong></li>
+          <li>Choose <strong>PrRd (Processor Read)</strong></li>
+          <li>Select <strong>Memory Address 0x0</strong> (same address)</li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>:<ul>
+          <li>P0: Exclusive (E) → Shared (S)</li>
+          <li>P1: Invalid (I) → Shared (S)</li>
+          </ul>
+          </li>
+          <li><strong>Note</strong>: Both processors now share the same data</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="exercise-2-write-operations-and-invalidation">Exercise 2: Write Operations and Invalidation</h4>
+          <ol start="3">
+          <li><p><strong>Write Hit from Shared (S → M)</strong></p>
+          <ul>
+          <li>Select <strong>Processor 0</strong></li>
+          <li>Choose <strong>PrWr (Processor Write)</strong></li>
+          <li>Select <strong>Memory Address 0x0</strong></li>
+          <li>Enter <strong>Data Value</strong>: "100"</li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>:<ul>
+          <li>P0: Shared (S) → Modified (M)</li>
+          <li>P1: Shared (S) → Invalid (I)</li>
+          </ul>
+          </li>
+          <li><strong>Note</strong>: Bus activity shows "BusUpgr" (Bus Upgrade)</li>
+          </ul>
+          </li>
+          <li><p><strong>Write Miss (I → M)</strong></p>
+          <ul>
+          <li>Select <strong>Processor 1</strong></li>
+          <li>Choose <strong>PrWr (Processor Write)</strong></li>
+          <li>Select <strong>Memory Address 0x1</strong> (different address)</li>
+          <li>Enter <strong>Data Value</strong>: "200"</li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>: P1 cache line 0x1 transitions from Invalid (I) to Modified (M)</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="exercise-3-the-owned-state-in-action">Exercise 3: The Owned State in Action</h4>
+          <ol start="5">
+          <li><p><strong>Creating the Owned State (M → O)</strong></p>
+          <ul>
+          <li>First, ensure P0 has Modified data at address 0x0 from previous steps</li>
+          <li>Select <strong>Processor 1</strong></li>
+          <li>Choose <strong>PrRd (Processor Read)</strong></li>
+          <li>Select <strong>Memory Address 0x0</strong></li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>:<ul>
+          <li>P0: Modified (M) → Owned (O)</li>
+          <li>P1: Invalid (I) → Shared (S)</li>
+          </ul>
+          </li>
+          <li><strong>Note</strong>: P0 retains ownership while P1 gets a shared copy</li>
+          </ul>
+          </li>
+          <li><p><strong>Maintaining Ownership</strong></p>
+          <ul>
+          <li>Select <strong>Processor 0</strong></li>
+          <li>Choose <strong>PrRd (Processor Read)</strong></li>
+          <li>Select <strong>Memory Address 0x0</strong></li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>: P0 remains in Owned (O) state - read hit</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="advanced-exercises">Advanced Exercises</h3>
+          <h4 id="exercise-4-silent-upgrade-e-→-m">Exercise 4: Silent Upgrade (E → M)</h4>
+          <ol start="7">
+          <li><strong>Exclusive to Modified Transition</strong><ul>
+          <li>Select <strong>Processor 0</strong></li>
+          <li>Choose <strong>PrRd (Processor Read)</strong></li>
+          <li>Select <strong>Memory Address 0x2</strong> (new address)</li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>: P0 gets Exclusive (E) access</li>
+          </ul>
+          </li>
+          <li><strong>Silent Upgrade</strong><ul>
+          <li>Keep <strong>Processor 0</strong> selected</li>
+          <li>Choose <strong>PrWr (Processor Write)</strong></li>
+          <li>Select <strong>Memory Address 0x2</strong> (same address)</li>
+          <li>Enter <strong>Data Value</strong>: "300"</li>
+          <li>Click <strong>"Execute Operation"</strong></li>
+          <li><strong>Observe</strong>: P0 transitions from Exclusive (E) to Modified (M)</li>
+          <li><strong>Note</strong>: No bus traffic generated (silent upgrade)</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="exercise-5-complex-state-interactions">Exercise 5: Complex State Interactions</h4>
+          <ol start="9">
+          <li><p><strong>Multi-Cache Sharing Pattern</strong></p>
+          <ul>
+          <li>Create a scenario where multiple addresses have different states</li>
+          <li>Try operations like:<ul>
+          <li>P0 reads 0x0, P1 reads 0x0 (both Shared)</li>
+          <li>P0 writes 0x1 (Modified)</li>
+          <li>P1 reads 0x1 (P0: Modified → Owned, P1: Invalid → Shared)</li>
+          <li>P1 writes 0x0 (P0: Shared → Invalid, P1: Shared → Modified)</li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+          <li><p><strong>Analyzing the Transaction Log</strong></p>
+          <ul>
+          <li>Review the <strong>Bus Transaction Log</strong> table</li>
+          <li>Understand each column:<ul>
+          <li><strong>Processor Activity</strong>: What operation was performed</li>
+          <li><strong>Bus Activity</strong>: What bus transactions occurred</li>
+          <li><strong>P0/P1 Content</strong>: Data values in each cache</li>
+          <li><strong>P0/P1 State</strong>: Current cache states</li>
+          <li><strong>P0/P1 Transition</strong>: State changes that occurred</li>
+          <li><strong>Memory</strong>: Memory content</li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="performance-analysis">Performance Analysis</h3>
+          <h4 id="exercise-6-cache-performance-metrics">Exercise 6: Cache Performance Metrics</h4>
+          <ol start="11">
+          <li><p><strong>Hit Rate Analysis</strong></p>
+          <ul>
+          <li>Perform multiple operations on the same addresses</li>
+          <li>Observe how cache hit rates improve with repeated accesses</li>
+          <li>Compare hit rates between processors</li>
+          </ul>
+          </li>
+          <li><p><strong>Bus Traffic Observation</strong></p>
+          <ul>
+          <li>Count the number of bus transactions for different operation sequences</li>
+          <li>Compare MOESI efficiency with simpler protocols (theoretical)</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="suggested-experiment-sequences">Suggested Experiment Sequences</h3>
+          <h4 id="sequence-a-basic-protocol-flow">Sequence A: Basic Protocol Flow</h4>
+          <pre>          1. P0 reads 0x0 → P0: I→E
+          2. P1 reads 0x0 → P0: E→S, P1: I→S
+          3. P0 writes "ABC" to 0x0 → P0: S→M, P1: S→I
+          4. P1 reads 0x0 → P0: M→O, P1: I→S
+          </pre>
+          
+          <h4 id="sequence-b-exclusive-state-benefits">Sequence B: Exclusive State Benefits</h4>
+          <pre>          1. P0 reads 0x1 → P0: I→E
+          2. P0 writes "XYZ" to 0x1 → P0: E→M (no bus traffic)
+          3. P1 reads 0x1 → P0: M→O, P1: I→S
+          </pre>
+          
+          <h4 id="sequence-c-multiple-address-management">Sequence C: Multiple Address Management</h4>
+          <pre>          1. P0 reads 0x0 → P0: I→E
+          2. P0 reads 0x1 → P0: I→E
+          3. P1 reads 0x0 → P0: E→S, P1: I→S
+          4. P1 writes "123" to 0x1 → P0: E→I, P1: I→M
+          </pre>
+          
+          <h3 id="learning-objectives-check">Learning Objectives Check</h3>
+          <p>After completing these exercises, you should be able to:</p>
+          <ol>
+          <li>✓ <strong>Identify MOESI States</strong>: Recognize when and why each state is used</li>
+          <li>✓ <strong>Predict Transitions</strong>: Anticipate state changes before executing operations</li>
+          <li>✓ <strong>Understand Bus Traffic</strong>: Explain why certain operations generate bus activity</li>
+          <li>✓ <strong>Analyze Performance</strong>: Compare different access patterns and their efficiency</li>
+          <li>✓ <strong>Apply Knowledge</strong>: Design cache access patterns for optimal performance</li>
+          </ol>
+          <h3 id="troubleshooting-tips">Troubleshooting Tips</h3>
+          <ul>
+          <li><strong>No State Change</strong>: If an operation doesn't change states, it's likely a cache hit</li>
+          <li><strong>Unexpected Transitions</strong>: Review the state transition table to understand the logic</li>
+          <li><strong>Bus Traffic</strong>: Remember that cache-to-cache transfers avoid memory access</li>
+          <li><strong>Invalid States</strong>: Understand that Invalid doesn't mean error - it's a valid protocol state</li>
+          </ul>
+          <h3 id="additional-experiments">Additional Experiments</h3>
+          <p>Try these advanced scenarios:</p>
+          <ul>
+          <li><strong>Write-Through vs Write-Back</strong>: Observe when data is written to memory</li>
+          <li><strong>Cache Line Eviction</strong>: See what happens when cache fills up</li>
+          <li><strong>Mixed Access Patterns</strong>: Combine reads and writes on multiple addresses</li>
+          <li><strong>Performance Comparison</strong>: Mentally compare with simpler protocols like MSI</li>
+          </ul>
+          <p>Follow these step-by-step instructions to understand and experiment with the MOESI cache coherence protocol:</p>
+          <h3 id="pre-experiment-setup">Pre-Experiment Setup</h3>
+          <ol>
+          <li><p><strong>Review the Theory Section</strong></p>
+          <ul>
+          <li>Understand the five MOESI states: Modified (M), Owned (O), Exclusive (E), Shared (S), Invalid (I)</li>
+          <li>Familiarize yourself with processor operations (PrRd, PrWr) and bus operations (BusRd, BusRdX, BusUpgr)</li>
+          </ul>
+          </li>
+          <li><p><strong>Understand the Simulation Interface</strong></p>
+          <ul>
+          <li>The simulator shows two processors (P0 and P1) with their respective caches</li>
+          <li>Each cache has 4 lines (indices 0-3)</li>
+          <li>Memory addresses are mapped to cache lines using modulo operation</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="basic-operations">Basic Operations</h3>
+          <h4 id="step-1-initial-cache-state-observation">Step 1: Initial Cache State Observation</h4>
+          <ol>
+          <li><strong>Launch the simulation</strong></li>
+          <li><strong>Observe the initial state</strong> - All cache lines start in Invalid (I) state</li>
+          <li><strong>Note the interface elements:</strong><ul>
+          <li>Processor selection (P0 or P1)</li>
+          <li>Operation type (Read/Write)</li>
+          <li>Memory address input</li>
+          <li>Data value input (for write operations)</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-2-first-read-operation-cold-miss">Step 2: First Read Operation (Cold Miss)</h4>
+          <ol>
+          <li><strong>Select Processor P0</strong></li>
+          <li><strong>Choose operation type: Read (PrRd)</strong></li>
+          <li><strong>Enter memory address: 0</strong></li>
+          <li><strong>Click "Execute Operation"</strong></li>
+          <li><strong>Observe the results:</strong><ul>
+          <li>P0's cache line 0 transitions from Invalid (I) to Exclusive (E)</li>
+          <li>Bus generates BusRd transaction</li>
+          <li>Data is loaded from memory</li>
+          <li>Transaction log shows the state transition</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-3-read-from-same-address-by-different-processor">Step 3: Read from Same Address by Different Processor</h4>
+          <ol>
+          <li><strong>Select Processor P1</strong></li>
+          <li><strong>Choose operation type: Read (PrRd)</strong></li>
+          <li><strong>Enter memory address: 0</strong></li>
+          <li><strong>Execute the operation</strong></li>
+          <li><strong>Analyze the outcome:</strong><ul>
+          <li>P0's cache line 0: Exclusive (E) → Shared (S)</li>
+          <li>P1's cache line 0: Invalid (I) → Shared (S)</li>
+          <li>Bus activity shows data sharing</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-4-write-operation-on-shared-data">Step 4: Write Operation on Shared Data</h4>
+          <ol>
+          <li><strong>Select Processor P0</strong></li>
+          <li><strong>Choose operation type: Write (PrWr)</strong></li>
+          <li><strong>Enter memory address: 0</strong></li>
+          <li><strong>Enter data value: 42</strong></li>
+          <li><strong>Execute the operation</strong></li>
+          <li><strong>Examine the changes:</strong><ul>
+          <li>P0's cache line 0: Shared (S) → Modified (M)</li>
+          <li>P1's cache line 0: Shared (S) → Invalid (I)</li>
+          <li>Bus generates BusUpgr to invalidate other copies</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="advanced-scenarios">Advanced Scenarios</h3>
+          <h4 id="step-5-demonstrating-the-owned-state">Step 5: Demonstrating the Owned State</h4>
+          <ol>
+          <li><strong>Reset the simulation</strong></li>
+          <li><strong>P0 writes to address 4:</strong><ul>
+          <li>Select P0, Write operation, address 4, data "100"</li>
+          <li>P0's cache line 0 becomes Modified (M)</li>
+          </ul>
+          </li>
+          <li><strong>P1 reads from address 4:</strong><ul>
+          <li>Select P1, Read operation, address 4</li>
+          <li>P0's cache line 0: Modified (M) → Owned (O)</li>
+          <li>P1's cache line 0: Invalid (I) → Shared (S)</li>
+          <li>P0 supplies data to P1 (cache-to-cache transfer)</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-6-write-to-owned-data">Step 6: Write to Owned Data</h4>
+          <ol>
+          <li><strong>Continue from Step 5</strong></li>
+          <li><strong>P0 writes to address 4 again:</strong><ul>
+          <li>P0's cache remains in Owned (O) state (or transitions to Modified)</li>
+          <li>Data is updated without invalidating P1's copy initially</li>
+          </ul>
+          </li>
+          <li><strong>Observe the coherence maintenance</strong></li>
+          </ol>
+          <h4 id="step-7-exclusive-to-modified-transition">Step 7: Exclusive to Modified Transition</h4>
+          <ol>
+          <li><strong>Reset the simulation</strong></li>
+          <li><strong>P0 reads from a new address (address 8):</strong><ul>
+          <li>P0's cache line 0 becomes Exclusive (E)</li>
+          </ul>
+          </li>
+          <li><strong>P0 writes to the same address:</strong><ul>
+          <li>P0's cache line 0: Exclusive (E) → Modified (M)</li>
+          <li>No bus traffic generated (silent transition)</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-8-complex-multi-address-scenario">Step 8: Complex Multi-Address Scenario</h4>
+          <ol>
+          <li><strong>Perform the following sequence:</strong><ul>
+          <li>P0 reads address 0 (becomes Exclusive)</li>
+          <li>P0 reads address 4 (becomes Exclusive in line 0)</li>
+          <li>P1 reads address 0 (both become Shared)</li>
+          <li>P1 writes address 0 (P1 becomes Modified, P0 becomes Invalid)</li>
+          <li>P0 reads address 0 (P1 becomes Owned, P0 becomes Shared)</li>
+          </ul>
+          </li>
+          </ol>
+          <h3 id="analyzing-results">Analyzing Results</h3>
+          <h4 id="step-9-transaction-log-analysis">Step 9: Transaction Log Analysis</h4>
+          <ol>
+          <li><strong>Review the transaction log</strong> after each operation</li>
+          <li><strong>Identify the components:</strong><ul>
+          <li>Processor activity description</li>
+          <li>Bus activity generated</li>
+          <li>State transitions for both processors</li>
+          <li>Memory content changes</li>
+          </ul>
+          </li>
+          </ol>
+          <h4 id="step-10-state-transition-table-verification">Step 10: State Transition Table Verification</h4>
+          <ol>
+          <li><strong>Compare observed transitions</strong> with the MOESI state transition table</li>
+          <li><strong>Verify correctness</strong> of each state change</li>
+          <li><strong>Understand the bus operations</strong> generated for each transition</li>
+          </ol>
+          <h4 id="step-11-performance-analysis">Step 11: Performance Analysis</h4>
+          <ol>
+          <li><strong>Count cache hits vs. misses</strong> for different scenarios</li>
+          <li><strong>Observe bus traffic patterns</strong> for various operation sequences</li>
+          <li><strong>Analyze memory bandwidth utilization</strong></li>
+          </ol>
+          <h3 id="experimental-exercises">Experimental Exercises</h3>
+          <h4 id="exercise-1-cache-hit-rate-analysis">Exercise 1: Cache Hit Rate Analysis</h4>
+          <ol>
+          <li>Perform 10 random read/write operations</li>
+          <li>Calculate the cache hit rate for each processor</li>
+          <li>Compare hit rates between processors</li>
+          </ol>
+          <h4 id="exercise-2-bus-traffic-optimization">Exercise 2: Bus Traffic Optimization</h4>
+          <ol>
+          <li>Design a sequence of operations that minimizes bus traffic</li>
+          <li>Design a sequence that maximizes bus traffic</li>
+          <li>Compare the two scenarios</li>
+          </ol>
+          <h4 id="exercise-3-coherence-overhead-measurement">Exercise 3: Coherence Overhead Measurement</h4>
+          <ol>
+          <li>Measure the number of bus transactions for a given workload</li>
+          <li>Compare with an ideal scenario (no coherence required)</li>
+          <li>Calculate the coherence overhead percentage</li>
+          </ol>
+          <h4 id="exercise-4-state-distribution-analysis">Exercise 4: State Distribution Analysis</h4>
+          <ol>
+          <li>Run a long sequence of operations</li>
+          <li>Record the frequency of each MOESI state</li>
+          <li>Analyze which states are most commonly used</li>
+          </ol>
+          <h3 id="common-observations-and-learning-points">Common Observations and Learning Points</h3>
+          <h4 id="key-observations">Key Observations:</h4>
+          <ul>
+          <li><strong>Cold misses</strong> always result in Exclusive state (if no sharing)</li>
+          <li><strong>Sharing</strong> automatically downgrades Exclusive to Shared</li>
+          <li><strong>Write operations</strong> on shared data trigger invalidations</li>
+          <li><strong>Owned state</strong> enables efficient sharing of modified data</li>
+          <li><strong>Cache-to-cache transfers</strong> reduce memory traffic</li>
+          </ul>
+          <h4 id="learning-outcomes">Learning Outcomes:</h4>
+          <ul>
+          <li>Understanding of cache coherence complexity</li>
+          <li>Appreciation for protocol optimization</li>
+          <li>Recognition of performance trade-offs</li>
+          <li>Insight into multiprocessor system design</li>
+          </ul>
+          <h3 id="troubleshooting-tips-1">Troubleshooting Tips</h3>
+          <ol>
+          <li><strong>If simulation doesn't respond:</strong> Refresh the page and try again</li>
+          <li><strong>If state transitions seem incorrect:</strong> Verify your understanding with the theory section</li>
+          <li><strong>If confused about bus operations:</strong> Review the state transition table</li>
+          <li><strong>For complex scenarios:</strong> Break down into simpler steps</li>
+          </ol>
+          <h3 id="post-experiment-analysis">Post-Experiment Analysis</h3>
+          <ol>
+          <li><strong>Summarize key findings</strong> from your experiments</li>
+          <li><strong>Compare MOESI behavior</strong> with simpler protocols (if familiar)</li>
+          <li><strong>Consider real-world implications</strong> of observed behaviors</li>
+          <li><strong>Reflect on scalability</strong> and performance aspects</li>
+          </ol>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] MOESI CACHE COHERENCE PROTOCOL" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MOESI CACHE COHERENCE PROTOCOL&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-cache-coherence-moesi-iiith/plugins/svc-rating/index.js"></script><script type="module" src="/exp-cache-coherence-moesi-iiith/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOESI Cache Coherence Protocol Simulator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="container is-fluid px-4 py-6">
+        <!-- Header -->
+        <section class="hero is-info is-small" style="background-color: #176696;">
+            <div class="hero-body has-text-centered">
+                <div class="container">
+                    <h1 class="title is-3-desktop is-4-tablet is-5-mobile has-text-white">
+                        MOESI Cache Coherence Protocol Simulator
+                    </h1>
+                    <p class="subtitle is-5-desktop is-6-mobile has-text-white">
+                        Interactive demonstration of the MOESI (Modified-Owned-Exclusive-Shared-Invalid) cache coherence protocol. 
+                        MOESI extends MSI by adding Owned (O) and Exclusive (E) states for better performance optimization.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Understanding Section -->
+        <section class="section">
+            <div class="box">
+                <h3 class="title is-4" style="color: #176696;">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Understanding the MOESI Protocol
+                </h3>
+                
+                <div class="columns">
+                    <div class="column">
+                        <h4 class="title is-5" style="color: #2C9AD1;">
+                            MOESI Protocol States:
+                        </h4>
+                        <div class="content">
+                            <ul>
+                                <li><strong style="color: #176696;">M (Modified):</strong> Cache line is modified, exclusive, and dirty</li>
+                                <li><strong style="color: #8B4513;">O (Owned):</strong> Cache line is owned by this cache, shared with others, responsible for memory updates</li>
+                                <li><strong style="color: #9B59B6;">E (Exclusive):</strong> Cache line is exclusive, clean, and unmodified</li>
+                                <li><strong style="color: #2C9AD1;">S (Shared):</strong> Cache line is shared, clean, and read-only</li>
+                                <li><strong style="color: #96A0A3;">I (Invalid):</strong> Cache line is invalid, not present in this cache</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <h4 class="title is-5" style="color: #2C9AD1;">
+                            Key MOESI Advantages:
+                        </h4>
+                        <div class="content">
+                            <ul>
+                                <li><strong>Owned state</strong> allows sharing dirty data without writing back to memory</li>
+                                <li><strong>Exclusive state</strong> enables silent transitions to Modified on writes</li>
+                                <li><strong>Reduced memory traffic</strong> through cache-to-cache transfers</li>
+                                <li><strong>Better performance</strong> for producer-consumer sharing patterns</li>
+                                <li><strong>Optimized writeback</strong> only when necessary</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5">
+                    <h4 class="title is-5" style="color: #2C9AD1;">
+                        How to Use This Simulator:
+                    </h4>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="content">
+                                <ol>
+                                    <li>Select a processor (P0 or P1)</li>
+                                    <li>Choose an operation (Read or Write)</li>
+                                    <li>Select a memory address (0x0 to 0x3)</li>
+                                </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <ol start="4">
+                                    <li>For writes, enter a data value</li>
+                                    <li>Click "Execute Operation" to see the protocol in action</li>
+                                    <li>Observe state transitions highlighted in the table above</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          <!-- MOESI State Table Section -->
+        <section class="section">
+            <div id="state-table-container">
+                <!-- State table will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Try This Test Sequence Section -->
+        <section class="section">
+            <div class="box">
+                <div class="notification is-info is-light">
+                    <h5 class="title is-6" style="color: #176696;">
+                        <i class="fas fa-flask mr-2"></i>
+                        Try This Test Sequence:
+                    </h5>
+                    <div class="content">
+                        <ol>
+                            <li><strong>P0 reads</strong> 0x0 → I→E (Exclusive access, no other copies)</li>
+                            <li><strong>P1 reads</strong> 0x0 → P0: E→S, P1: I→S (Both share clean copy)</li>
+                            <li><strong>P0 writes</strong> "100" to 0x0 → P0: S→M, P1: S→I (P0 gets exclusive write)</li>
+                            <li><strong>P1 reads</strong> 0x0 → P0: M→O, P1: I→S (P0 owns, P1 shares dirty data)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulation Controls -->
+        <section class="section">
+            <div class="box">
+                <h3 class="title is-4" style="color: #176696;">
+                    <i class="fas fa-cogs mr-2"></i>
+                    Simulation Controls
+                </h3>
+                
+                <div class="columns is-multiline">
+                    <div class="column is-6-tablet is-3-desktop">
+                        <div class="field">
+                            <label class="label">Processor</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="processor-select">
+                                        <option value="0">Processor 0</option>
+                                        <option value="1">Processor 1</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column is-6-tablet is-3-desktop">
+                        <div class="field">
+                            <label class="label">Operation Type</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="operation-select">
+                                        <option value="PrRd">PrRd (Processor Read)</option>
+                                        <option value="PrWr">PrWr (Processor Write)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column is-6-tablet is-3-desktop">
+                        <div class="field">
+                            <label class="label">Memory Address</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="address-select">
+                                        <option value="0">0x0</option>
+                                        <option value="1">0x1</option>
+                                        <option value="2">0x2</option>
+                                        <option value="3">0x3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column is-6-tablet is-3-desktop">
+                        <div class="field">
+                            <label class="label">Data Value (for writes)</label>
+                            <div class="control">
+                                <input class="input" type="text" id="data-input" placeholder="Enter data value" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="has-text-centered">
+                    <button id="execute-btn" class="button is-primary is-medium" style="background-color: #176696;">
+                        <span class="icon">
+                            <i class="fas fa-play"></i>
+                        </span>
+                        <span>Execute Operation</span>
+                    </button>
+                </div>
+            </div>
+        </section>            <!-- Processor Cache States -->
+        <section class="section">
+            <h3 class="title is-4 has-text-centered" style="color: #176696;">
+                <i class="fas fa-memory mr-2"></i>
+                Processor Cache States
+            </h3>
+            
+            <div class="columns">
+                <!-- Processor 0 Cache -->
+                <div class="column">
+                    <div class="box">
+                        <h4 class="title is-5 has-text-centered" style="color: #176696;">
+                            Processor 0 Cache
+                    </h4>
+                    
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-fullwidth">
+                            <thead>
+                                <tr style="background-color: #98CB3B;">
+                                    <th class="has-text-centered">Cache Index</th>
+                                    <th class="has-text-centered">State</th>
+                                    <th class="has-text-centered">Data</th>
+                                    <th class="has-text-centered">Valid</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cache-table-p0">
+                                <!-- Cache lines will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="notification is-light">
+                        <strong>Cache Performance:</strong> <span id="p0-stats">Hits: 0, Misses: 0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Processor 1 Cache -->
+            <div class="column">
+                <div class="box">
+                    <h4 class="title is-5 has-text-centered" style="color: #176696;">
+                        Processor 1 Cache
+                    </h4>
+                    
+                    <div class="table-container">
+                        <table class="table is-striped is-hoverable is-fullwidth">
+                            <thead>
+                                <tr style="background-color: #98CB3B;">
+                                    <th class="has-text-centered">Cache Index</th>
+                                    <th class="has-text-centered">State</th>
+                                    <th class="has-text-centered">Data</th>
+                                    <th class="has-text-centered">Valid</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cache-table-p1">
+                                <!-- Cache lines will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="notification is-light">
+                        <strong>Cache Performance:</strong> <span id="p1-stats">Hits: 0, Misses: 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+          <!-- Bus Transaction Log -->
+        <section class="section">
+            <div class="box">
+                <h3 class="title is-4 has-text-centered" style="color: #176696;">
+                    <i class="fas fa-exchange-alt mr-2"></i>
+                    Bus Transaction Log & State Transitions
+                </h3>
+                
+                <div id="no-operations" class="notification is-info is-light has-text-centered">
+                    <p>
+                        No operations performed yet. Execute an operation to see the transaction log.
+                    </p>
+                </div>
+                
+                <div id="transaction-log-container" class="table-container" style="display: none;">
+                    <table class="table is-striped is-hoverable is-fullwidth is-narrow">
+                        <thead>
+                            <tr style="background-color: #98CB3B;">
+                                <th class="has-text-centered">Processor Activity</th>
+                                <th class="has-text-centered">Bus Activity</th>
+                                <th class="has-text-centered">P0 Content</th>
+                                <th class="has-text-centered">P0 State</th>
+                                <th class="has-text-centered">P0 Transition</th>
+                                <th class="has-text-centered">P1 Content</th>
+                                <th class="has-text-centered">P1 State</th>
+                                <th class="has-text-centered">P1 Transition</th>
+                                <th class="has-text-centered">Memory</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-log-body">
+                            <!-- Transaction log entries will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        </div>
+    </div>
+    <script src="./js/main.js" defer></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>
